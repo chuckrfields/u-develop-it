@@ -12,18 +12,18 @@ const db = mysql.createConnection(
     {
         host: 'localhost',
         // MySQL Username
-        user: 'root',
+        user: 'spacetech',
         // MySQL password
-        password: 'IgUa6406Ma!',
+        password: 'SpaceTech21!',
         database: 'election'
     },
     console.log("Connected to the election database")
 );
 
 // test db connection
-// db.query(`Select * FROM candidates`, (err, rows) => {
-//     console.log(rows);
-// })
+db.query(`Select * FROM candidates`, (err, rows) => {
+    console.log(rows);
+})
 
 // GET a single candidate
 // db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
@@ -43,16 +43,16 @@ const db = mysql.createConnection(
 // });
 
 // CREATE a candidate
-const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
-                VALUES (?, ?, ?, ?)`;
-const params = [1, 'Ronald', 'Firbank', 1];
+// const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+//                 VALUES (?, ?, ?, ?)`;
+// const params = [1, 'Ronald', 'Firbank', 1];
 
-db.query(sql, params, (err, result) => {
-    if (err) {
-        console.log(err);
-    }
-    console.log(result);
-});
+// db.query(sql, params, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result);
+// });
 
 // Test Route
 // app.get('/', (req, res) =>{
