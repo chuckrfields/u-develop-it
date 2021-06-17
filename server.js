@@ -21,9 +21,38 @@ const db = mysql.createConnection(
 );
 
 // test db connection
-db.query(`Select * FROM candidates`, (err, rows) => {
-    console.log(rows);
-})
+// db.query(`Select * FROM candidates`, (err, rows) => {
+//     console.log(rows);
+// })
+
+// GET a single candidate
+// db.query(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(row);
+// });
+
+// DELETE a candidate
+// Use ? for 'prepared statement' followed by the param argument (can be array)
+// db.query(`DELETE FROM candidates WHERE id = ?`, 1, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result);
+// });
+
+// CREATE a candidate
+const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
+                VALUES (?, ?, ?, ?)`;
+const params = [1, 'Ronald', 'Firbank', 1];
+
+db.query(sql, params, (err, result) => {
+    if (err) {
+        console.log(err);
+    }
+    console.log(result);
+});
 
 // Test Route
 // app.get('/', (req, res) =>{
